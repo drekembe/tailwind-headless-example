@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 225deg 59% 35%;
+  }
+
+  .est {
+    --color-primary: 120deg 59% 35%;
+  }
+
+  .uganda {
+    --color-primary: 20deg 59% 35%;
+  }
+}
