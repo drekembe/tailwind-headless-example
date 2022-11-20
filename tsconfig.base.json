@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@supa/components": ["packages/components/src/index.ts"]
+      "@supa/components": ["packages/components/src/index.ts"],
+      "@supa/components/*": ["packages/components/src/lib/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

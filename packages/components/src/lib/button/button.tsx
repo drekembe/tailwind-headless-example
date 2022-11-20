@@ -1,3 +1,4 @@
+'use client';
 import { cva, VariantProps } from 'class-variance-authority';
 /* eslint-disable-next-line */
 export interface ButtonProps
@@ -9,18 +10,18 @@ export interface ButtonProps
 const buttonCva = cva([`rounded-lg drop-shadow-md hover:shadow-primary`], {
   variants: {
     intent: {
-      primary: 'bg-primary text-white hover:text-blue-200',
-      secondary: 'bg-green-500 text-white hover:text-green-200',
+      primary: 'bg-primary text-white hover:text-blue-200 rtl:text-pink-500',
+      secondary: 'bg-secondary text-white hover:text-green-200',
     },
     size: {
-      small: 'p-2 text-sm',
-      medium: 'p-4 text-md',
+      small: 'p-2 compact:p-1 text-sm compact:text-xs w-24 compact:w-18',
+      medium: 'p-4 compact:p-2 text-md compact:text-sm w-36 compact:w-24',
     },
     fullWidth: {
       true: 'w-full',
     },
     outline: {
-      true: [],
+      true: 'bg-white dark:bg-zinc-800 outline outline-1',
     },
     disabled: {
       true: 'opacity-50',
@@ -30,22 +31,18 @@ const buttonCva = cva([`rounded-lg drop-shadow-md hover:shadow-primary`], {
     {
       intent: 'primary',
       outline: true,
-      class: 'bg-white outline outline-primary outline-1 text-primary',
+      class: ['text-primary dark:text-white outline-primary'],
+    },
+    {
+      intent: 'secondary',
+      outline: true,
+      class: ['text-primary dark:text-secondary outline-secondary'],
     },
   ],
   defaultVariants: {
     intent: 'primary',
     size: 'medium',
     outline: false,
-  },
-});
-
-const innerCva = cva('text-pink-600', {
-  variants: {
-    intent: {
-      primary: 'animate-spin',
-      secondary: [],
-    },
   },
 });
 
@@ -72,9 +69,6 @@ export function Button({
       ) : (
         children
       )}
-      <div className={innerCva({ intent })}>ok</div>
     </button>
   );
 }
-
-export default Button;

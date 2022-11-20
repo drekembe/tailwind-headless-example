@@ -16,4 +16,11 @@ Primary.args = {
   intent: 'primary',
   size: 'medium',
   fullWidth: false,
+  outline: false,
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  ...Primary.args,
+  intent: 'secondary',
 };

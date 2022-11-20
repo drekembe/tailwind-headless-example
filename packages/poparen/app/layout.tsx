@@ -1,4 +1,12 @@
 import './globals.css';
+import { Inter } from '@next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-inter',
+});
+
 export default function RootLayout({
   children,
 }: {
@@ -7,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head></head>
-      <body>{children}</body>
+      <body className={`${inter.variable} font-sans`}>{children}</body>
     </html>
   );
 }

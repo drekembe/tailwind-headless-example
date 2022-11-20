@@ -5,13 +5,16 @@
 @layer base {
   :root {
     --color-primary: 225deg 59% 35%;
+    --color-secondary: 112deg 75% 50%;
   }
 
-  .est {
-    --color-primary: 120deg 59% 35%;
+  .theme-est {
+    --color-primary: 345deg 59% 35%;
+    --color-secondary: 13deg 75% 80%;
   }
 
-  .uganda {
+  .theme-uganda {
     --color-primary: 20deg 59% 35%;
+    --color-secondary: 203deg 75% 50%;
   }
 }

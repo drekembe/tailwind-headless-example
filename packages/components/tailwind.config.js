@@ -8,6 +8,7 @@ module.exports = {
       __dirname,
       '{src,pages,components}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
+    join(__dirname, '.storybook/preview.js'),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   presets: [require('../../tailwind.config.base')],
