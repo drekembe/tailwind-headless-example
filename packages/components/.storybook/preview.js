@@ -1,5 +1,6 @@
 import './tailwind-imports.css';
 import { useEffect, useState } from 'react';
+import { DirectionProvider } from '@radix-ui/react-direction';
 
 export const parameters = {
   darkMode: {
@@ -31,7 +32,9 @@ export const decorators = [
     return (
       <div className="flex">
         <div className={`grow ${currentWl}${compact ? ' compact' : ''}`}>
-          <Story />
+          <DirectionProvider dir={dir}>
+            <Story />
+          </DirectionProvider>
         </div>
         <div
           className={`flex-none flex flex-col justify-start space-y-4 items-end`}

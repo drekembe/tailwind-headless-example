@@ -1592,7 +1592,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.0.0, @babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.14.8, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.18.9, @babel/runtime@npm:^7.5.0, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4":
   version: 7.20.1
   resolution: "@babel/runtime@npm:7.20.1"
   dependencies:
@@ -2917,6 +2917,17 @@ __metadata:
     webpack-plugin-serve:
       optional: true
   checksum: 446c0add9ecf17ed9911bf310bf22ab64f4b3d0ce334e68a3fcac5efee782ef4d7b6260997efaf720c7a2ea39086db89629e4aa07fb18558387d8dc8f0f31da2
+  languageName: node
+  linkType: hard
+
+"@radix-ui/react-direction@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@radix-ui/react-direction@npm:1.0.0"
+  dependencies:
+    "@babel/runtime": ^7.13.10
+  peerDependencies:
+    react: ^16.8 || ^17.0 || ^18.0
+  checksum: 92a40de4087b161a56957872daf204a7735bd21f2fccbd42deff322d759977d085ad3dcdae05af437b7e64e628e939e0d67e5bc468a3027e1b02e0a7dc90c485
   languageName: node
   linkType: hard
 
@@ -19205,6 +19216,7 @@ __metadata:
     "@nrwl/storybook": 15.1.0
     "@nrwl/web": 15.1.0
     "@nrwl/workspace": 15.1.0
+    "@radix-ui/react-direction": ^1.0.0
     "@storybook/addon-essentials": ~6.5.9
     "@storybook/builder-webpack5": ~6.5.9
     "@storybook/core-server": ~6.5.9
