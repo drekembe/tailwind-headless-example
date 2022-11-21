@@ -25,10 +25,10 @@ export const decorators = [
     const [wl, setWl] = useState(0);
     const [compact, setCompact] = useState(false);
     const currentWl = wls[wl];
-    useEffect(() => {
-      const html = document.getElementsByTagName('html')[0];
-      html.setAttribute('dir', dir);
-    }, [dir]);
+    useEffect(
+      () => document.getElementsByTagName('html')[0].setAttribute('dir', dir),
+      [dir]
+    );
     return (
       <div className="flex">
         <div className={`grow ${currentWl}${compact ? ' compact' : ''}`}>
