@@ -1,7 +1,8 @@
 'use client';
 import { Fragment, useState } from 'react';
 import { Listbox as ListboxH, Transition } from '@headlessui/react';
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
+import { CheckIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
+import { cx } from 'class-variance-authority';
 
 /* eslint-disable-next-line */
 export interface ListboxProps {}
@@ -13,6 +14,14 @@ const people = [
   { name: 'Tom Cook' },
   { name: 'Tanya Fox' },
   { name: 'Hellen Schmidt' },
+  { name: 'Devon Webb' },
+  { name: 'Tom Cook' },
+  { name: 'Tanya Fox' },
+  { name: 'Hellen Schmidt' },
+  { name: 'Devon Webb' },
+  { name: 'Tom Cook' },
+  { name: 'Tanya Fox' },
+  { name: 'Hellen Schmidt' },
 ];
 
 export function Listbox(props: ListboxProps) {
@@ -20,14 +29,24 @@ export function Listbox(props: ListboxProps) {
   return (
     <div className="w-72">
       <ListboxH value={selected} onChange={setSelected}>
-        <div className="relative mt-1">
-          <ListboxH.Button className="relative w-full cursor-default rounded-lg bg-white dark:bg-slate-700 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+        <div className="relative">
+          <ListboxH.Button
+            className={cx([
+              'relative w-full cursor-default text-left sm:text-sm rtl:text-right',
+              'py-4 pl-3 pr-10 rounded-lg compact:py-2 rtl:pl-10 rtl:pr-3',
+              'bg-zinc-50 dark:bg-slate-700',
+              'shadow-inner hover:shadow-zinc-300 dark:hover:shadow-slate-800/80',
+              'focus:outline-none focus-visible:border-indigo-500',
+              'focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75',
+              'focus-visible:ring-offset-2 focus-visible:ring-offset-secondary',
+            ])}
+          >
             <span className="block truncate dark:text-white">
               {selected.name}
             </span>
-            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-              <ChevronUpDownIcon
-                className="h-5 w-5 text-gray-400 dark:text-white"
+            <span className="pointer-events-none absolute inset-y-0 ltr:right-0 rtl:left-0 flex items-center ltr:pr-2 rtl:pl-2">
+              <ChevronDownIcon
+                className="h-5 w-5 text-gray-800 dark:text-white ui-open:rotate-180 transition-transform"
                 aria-hidden="true"
               />
             </span>
@@ -35,6 +54,9 @@ export function Listbox(props: ListboxProps) {
           <Transition
             as={Fragment}
             leave="transition ease-in duration-100"
+            enter="transition ease-in duartion-100"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
@@ -45,8 +67,8 @@ export function Listbox(props: ListboxProps) {
                   className={({ active }: { active: boolean }) =>
                     `relative cursor-default select-none py-2 pl-10 pr-4 ${
                       active
-                        ? 'bg-amber-100 text-amber-900 dark:bg-slate-600 dark:text-amber-100'
-                        : 'text-pink-500 dark:text-gray-50'
+                        ? 'bg-zinc-100 text-inherit dark:bg-slate-700 dark:text-secondary'
+                        : 'text-inherit dark:text-gray-50'
                     }`
                   }
                   value={person}
@@ -61,7 +83,7 @@ export function Listbox(props: ListboxProps) {
                         {person.name}
                       </span>
                       {selected ? (
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-600 dark:text-secondary">
                           <CheckIcon className="h-5 w-5" aria-hidden="true" />
                         </span>
                       ) : null}

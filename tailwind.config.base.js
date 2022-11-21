@@ -15,5 +15,6 @@ module.exports = {
     require('tailwindcss/plugin')(({ addVariant }) => {
       addVariant('compact', '&:is(.compact *)');
     }),
+    require('@headlessui/tailwindcss'),
   ],
 };
