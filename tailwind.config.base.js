@@ -16,5 +16,6 @@ module.exports = {
       addVariant('compact', '&:is(.compact *)');
     }),
     require('@headlessui/tailwindcss'),
+    require('@tailwindcss/forms'),
   ],
 };
