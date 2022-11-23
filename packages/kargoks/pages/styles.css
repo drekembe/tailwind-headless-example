@@ -18,3 +18,9 @@
     --color-secondary: 270deg 100% 34%;
   }
 }
+
+@layer utilities {
+  .debug {
+    @apply outline-red-500 outline-1 outline-dashed;
+  }
+}
