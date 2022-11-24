@@ -23,10 +23,27 @@ function Header() {
   );
 }
 
-function Title({ children }: { children: React.ReactNode }) {
+function Banner({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="p-8 text-white text-3xl font-bold h-36 bg-gradient-to-tr from-primary to-pink-500">
+      {children}
+    </div>
+  );
+}
+
+function Title({
+  children,
+  subtitle,
+}: {
+  children: React.ReactNode;
+  subtitle?: React.ReactNode;
+}) {
   return (
     <h1 className="text-4xl font-bold">
       <span className="bg-purple-800 text-white px-2">{children}</span>
+      {subtitle ? (
+        <p className="text-xl font-bold text-primary mt-4 mb-8">{subtitle}</p>
+      ) : null}
     </h1>
   );
 }
@@ -55,7 +72,6 @@ function Menu() {
     </div>
   );
 }
-
 function SidebarItem({
   children,
   icon: Icon,
@@ -91,16 +107,11 @@ export function Index() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="p-8 text-white text-3xl font-bold h-36 bg-gradient-to-tr from-primary to-pink-500">
-        THIS IS SOME KARGOX
-      </div>
+      <Banner>This is some KARGOX</Banner>
       <div className="flex flex-row space-x-8 mt-8 container mx-auto">
         <Sidebar />
         <div className="grow">
-          <Title>&gt; Welcome to zombo.com</Title>
-          <p className="text-xl font-bold text-primary mt-4 mb-8">
-            This is some subtitle text
-          </p>
+          <Title subtitle="Some subtitle text">Welcome to zombo.com</Title>
           <div className="rounded-xl border-gray-300 dark:border-gray-900 border p-4 w-64 shadow-xl space-y-4">
             <div className="flex space-x-4 items-center">
               <Image
@@ -116,7 +127,7 @@ export function Index() {
               This is some text a lot of text its ok ok ok this is some more
               text
             </p>
-            <button className="w-full rounded-xl bg-gradient-to-tr from-purple-800 to-pink-500 font-bold align-center p-4 text-white uppercase hover:bg-gradient-to-tl hover:bg-gradient-to-br">
+            <button className="w-full rounded-xl bg-gradient-to-tr from-purple-800 to-pink-500 font-bold align-center p-4 text-white uppercase hover:bg-gradient-to-tl">
               Click me
             </button>
           </div>
