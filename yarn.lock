@@ -19795,6 +19795,7 @@ __metadata:
     storybook-addon-themes: ^6.1.0
     storybook-dark-mode: ^1.1.2
     tailwindcss: latest
+    tailwindcss-radix: ^2.6.1
     ts-jest: 28.0.5
     ts-node: 10.9.1
     tslib: ^2.3.0
@@ -19917,6 +19918,13 @@ __metadata:
   version: 2.0.16
   resolution: "synchronous-promise@npm:2.0.16"
   checksum: 1a3e5dfa9e3b913452366e182d4cae5c2ffb9de8c9753ecb602539a298e82ab82de951a0b0ecd86b2e2e237b1236eb5e82964c8ce13b2d23f7ecd52767a2b74d
+  languageName: node
+  linkType: hard
+
+"tailwindcss-radix@npm:^2.6.1":
+  version: 2.6.1
+  resolution: "tailwindcss-radix@npm:2.6.1"
+  checksum: 7143260da921110ee515411e4bd726412c85d26fa8bb9aba77deb256a44af57e4ceec387efef52f4879589ff66eb3ef307519183eb5bd0c0012e4c8c96d4d550
   languageName: node
   linkType: hard
 

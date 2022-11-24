@@ -76,6 +76,7 @@
     "react-dom": "18.2.0",
     "regenerator-runtime": "0.13.7",
     "storybook-addon-themes": "^6.1.0",
+    "tailwindcss-radix": "^2.6.1",
     "tslib": "^2.3.0"
   }
 }

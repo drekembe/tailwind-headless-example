@@ -17,9 +17,14 @@ function CustomApp({ Component, pageProps }: AppProps) {
         <title>Welcome to kargoks!</title>
       </Head>
       <div className="light">
-        <main
-          className={`app min-h-screen dark:bg-zinc-800 dark:text-white ${inter.variable} font-sans`}
-        >
+        <main className={`app min-h-screen dark:bg-zinc-800 dark:text-white`}>
+          <style jsx global>
+            {`
+              html {
+                font-family: ${inter.style.fontFamily};
+              }
+            `}
+          </style>
           <Component {...pageProps} />
         </main>
       </div>
