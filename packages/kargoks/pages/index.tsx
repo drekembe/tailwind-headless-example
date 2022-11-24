@@ -10,12 +10,6 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import React from 'react';
 import { cx } from 'class-variance-authority';
 
-function Logo() {
-  return (
-    <div className="text-2xl font-bold text-pink-600">Kargoks かごこす</div>
-  );
-}
-
 function Header() {
   return (
     <div className="h-24">
@@ -23,6 +17,38 @@ function Header() {
         <Logo />
         <Menu />
       </div>
+    </div>
+  );
+}
+
+function Logo() {
+  return (
+    <div className="text-2xl font-bold text-pink-600">Kargoks かごこす</div>
+  );
+}
+
+function Menu() {
+  return (
+    <div className="space-x-16 flex">
+      <a
+        href="#"
+        className="hover:text-purple-600 hover:-translate-y-1 transition-transform text-pink-500 font-bold"
+      >
+        One
+      </a>
+      <a
+        href="#"
+        className="hover:text-purple-600 hover:-translate-y-1 transition-transform text-pink-500 font-bold"
+      >
+        Two
+      </a>
+      <a
+        href="#"
+        className="hover:text-purple-600 hover:-translate-y-1 transition-transform text-pink-500 font-bold"
+      >
+        Three
+      </a>
+      <Drop />
     </div>
   );
 }
@@ -52,95 +78,16 @@ function Title({
   );
 }
 
-function MenuItem({ children }: { children: React.ReactNode }) {
+function Sidebar() {
   return (
-    <DropdownMenu.Item
-      onSelect={(x) => console.log(x)}
-      className={cx([
-        `py-1 px-2 rounded data-[highlighted]:bg-pink-500`,
-        `transition-all cursor-pointer data-[highlighted]:text-white`,
-        `outline-none mb-2`,
-      ])}
-    >
-      {children}
-    </DropdownMenu.Item>
+    <ul className="rounded-2xl w-56 space-y-4">
+      <SidebarItem icon={UserCircleIcon}>First item</SidebarItem>
+      <SidebarItem icon={CakeIcon}>Second item</SidebarItem>
+      <SidebarItem icon={PlusCircleIcon}>Third item</SidebarItem>
+    </ul>
   );
 }
 
-function Menu() {
-  return (
-    <div className="space-x-16 flex">
-      <a
-        href="#"
-        className="hover:text-purple-600 hover:-translate-y-1 transition-transform text-pink-500 font-bold"
-      >
-        One
-      </a>
-      <a
-        href="#"
-        className="hover:text-purple-600 hover:-translate-y-1 transition-transform text-pink-500 font-bold"
-      >
-        Two
-      </a>
-      <a
-        href="#"
-        className="hover:text-purple-600 hover:-translate-y-1 transition-transform text-pink-500 font-bold"
-      >
-        Three
-      </a>
-      <DropdownMenu.Root>
-        <DropdownMenu.Trigger
-          className={cx(
-            `rounded-full bg-white border border-gray-300 text-white h-8 w-8 flex`,
-            `items-center justify-center data-[state=open]:rotate-180 transition-all`
-          )}
-        >
-          <ChevronDoubleDownIcon className="h-4 w-4 text-pink-500" />
-        </DropdownMenu.Trigger>
-        <DropdownMenu.Portal>
-          <DropdownMenu.Content
-            className={cx(
-              `bg-white border-gray-300 border p-2 rounded shadow-xl w-64`,
-              `data-[side=top]:animate-slide-up data-[side=bottom]:animate-slide-down`
-            )}
-            align="end"
-            sideOffset={5}
-          >
-            <DropdownMenu.Arrow className="fill-gray-300" />
-            <MenuItem>Profile</MenuItem>
-            <MenuItem>Settings</MenuItem>
-            <DropdownMenu.Label className="py-1 px-2 text-slate-400 mb-2">
-              More
-            </DropdownMenu.Label>
-            <MenuItem>Preferences</MenuItem>
-            <DropdownMenu.Sub>
-              <DropdownMenu.SubTrigger
-                className={cx(
-                  `py-1 px-2 rounded data-[highlighted]:bg-pink-500 transition-all`,
-                  `cursor-pointer data-[highlighted]:text-white outline-none mb-2`
-                )}
-              >
-                Submenu
-              </DropdownMenu.SubTrigger>
-              <DropdownMenu.Portal>
-                <DropdownMenu.SubContent
-                  className={cx(
-                    'origin-radix-dropdown-menu bg-white border-gray-300 p-2 rounded',
-                    'shadow-xl data-[state=open]:animate-scale-in'
-                  )}
-                >
-                  <DropdownMenu.Arrow className="fill-gray-300" />
-                  <MenuItem>One</MenuItem>
-                  <MenuItem>Two</MenuItem>
-                </DropdownMenu.SubContent>
-              </DropdownMenu.Portal>
-            </DropdownMenu.Sub>
-          </DropdownMenu.Content>
-        </DropdownMenu.Portal>
-      </DropdownMenu.Root>
-    </div>
-  );
-}
 function SidebarItem({
   children,
   icon: Icon,
@@ -160,15 +107,6 @@ function SidebarItem({
         {children}
       </a>
     </li>
-  );
-}
-function Sidebar() {
-  return (
-    <ul className="rounded-2xl w-56 space-y-4">
-      <SidebarItem icon={UserCircleIcon}>First item</SidebarItem>
-      <SidebarItem icon={CakeIcon}>Second item</SidebarItem>
-      <SidebarItem icon={PlusCircleIcon}>Third item</SidebarItem>
-    </ul>
   );
 }
 
@@ -215,6 +153,77 @@ export function Index() {
         </div>
       </div>
     </div>
+  );
+}
+
+function Drop() {
+  return (
+    <DropdownMenu.Root>
+      <DropdownMenu.Trigger
+        className={cx(
+          `rounded-full bg-white border border-gray-300 text-white h-8 w-8 flex`,
+          `items-center justify-center data-[state=open]:rotate-180 transition-all`
+        )}
+      >
+        <ChevronDoubleDownIcon className="h-4 w-4 text-pink-500" />
+      </DropdownMenu.Trigger>
+      <DropdownMenu.Portal>
+        <DropdownMenu.Content
+          className={cx(
+            `bg-white border-gray-300 border p-2 rounded shadow-xl w-64`,
+            `data-[side=top]:animate-slide-up data-[side=bottom]:animate-slide-down`
+          )}
+          align="end"
+          sideOffset={5}
+        >
+          <DropdownMenu.Arrow className="fill-gray-300" />
+          <DropDownMenuItem>Profile</DropDownMenuItem>
+          <DropDownMenuItem>Settings</DropDownMenuItem>
+          <DropdownMenu.Label className="py-1 px-2 text-slate-400 mb-2">
+            More
+          </DropdownMenu.Label>
+          <DropDownMenuItem>Preferences</DropDownMenuItem>
+          <DropdownMenu.Sub>
+            <DropdownMenu.SubTrigger
+              className={cx(
+                `py-1 px-2 rounded data-[highlighted]:bg-pink-500 transition-all`,
+                `cursor-pointer data-[highlighted]:text-white outline-none mb-2`
+              )}
+            >
+              Submenu
+            </DropdownMenu.SubTrigger>
+            <DropdownMenu.Portal>
+              <DropdownMenu.SubContent
+                sideOffset={6}
+                className={cx(
+                  'origin-radix-dropdown-menu bg-white border-gray-300 p-2 rounded',
+                  'shadow-xl data-[state=open]:animate-scale-in'
+                )}
+              >
+                <DropdownMenu.Arrow className="fill-gray-300" />
+                <DropDownMenuItem>One</DropDownMenuItem>
+                <DropDownMenuItem>Two</DropDownMenuItem>
+              </DropdownMenu.SubContent>
+            </DropdownMenu.Portal>
+          </DropdownMenu.Sub>
+        </DropdownMenu.Content>
+      </DropdownMenu.Portal>
+    </DropdownMenu.Root>
+  );
+}
+
+function DropDownMenuItem({ children }: { children: React.ReactNode }) {
+  return (
+    <DropdownMenu.Item
+      onSelect={(x) => console.log(x)}
+      className={cx([
+        `py-1 px-2 rounded data-[highlighted]:bg-pink-500`,
+        `transition-all cursor-pointer data-[highlighted]:text-white`,
+        `outline-none mb-2`,
+      ])}
+    >
+      {children}
+    </DropdownMenu.Item>
   );
 }
 
