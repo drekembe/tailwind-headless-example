@@ -2,9 +2,12 @@ import {
   CakeIcon,
   UserCircleIcon,
   PlusCircleIcon,
+  CheckBadgeIcon,
+  ChevronDoubleDownIcon,
 } from '@heroicons/react/20/solid';
 import gokuImg from './goku.png';
 import Image from 'next/image';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 function Logo() {
   return (
@@ -69,6 +72,37 @@ function Menu() {
       >
         Three
       </a>
+      <DropdownMenu.Root>
+        <DropdownMenu.Trigger
+          className={`rounded-full bg-gray-200 text-white h-8 w-8 flex items-center justify-center data-[state=open]:rotate-180 transition-all`}
+        >
+          <ChevronDoubleDownIcon className="h-4 w-4 text-pink-500" />
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Portal>
+          <DropdownMenu.Content className="bg-pink-500 text-white p-2 rounded-xl shadow-xl data-[state=open]:bg-lime-500 data-[state=closed]:bg-pink-500 transition-all ease-in">
+            <DropdownMenu.Arrow className="fill-pink-500" />
+            <DropdownMenu.Item
+              onSelect={(x) => console.log(x)}
+              className="p-2 rounded-xl data-[highlighted]:bg-pink-800 transition-all focus:outline-0 focus:ring-2 ring-lime-500"
+            >
+              Ok
+            </DropdownMenu.Item>
+            <DropdownMenu.Item>what</DropdownMenu.Item>
+            <DropdownMenu.Label>some grouping</DropdownMenu.Label>
+            <DropdownMenu.Item>yes</DropdownMenu.Item>
+            <DropdownMenu.Sub>
+              <DropdownMenu.SubTrigger>Submenu</DropdownMenu.SubTrigger>
+              <DropdownMenu.Portal>
+                <DropdownMenu.SubContent>
+                  <DropdownMenu.Arrow />
+                  <DropdownMenu.Item>One</DropdownMenu.Item>
+                  <DropdownMenu.Item>Two</DropdownMenu.Item>
+                </DropdownMenu.SubContent>
+              </DropdownMenu.Portal>
+            </DropdownMenu.Sub>
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
     </div>
   );
 }
@@ -112,7 +146,8 @@ export function Index() {
         <Sidebar />
         <div className="grow">
           <Title subtitle="Some subtitle text">Welcome to zombo.com</Title>
-          <div className="rounded-xl border-gray-300 dark:border-gray-900 border p-4 w-64 shadow-xl space-y-4">
+          <div className="rounded-xl border-gray-300 dark:border-gray-900 border p-4 w-64 shadow-xl space-y-4 relative">
+            <div className="bg-pink-500 w-2 h-2 rounded-full top-0 right-0 absolute animate-ping"></div>
             <div className="flex space-x-4 items-center">
               <Image
                 src={gokuImg}
